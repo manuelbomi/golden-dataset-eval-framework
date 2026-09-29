@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/api/client.ts","./src/components/adjudicationview.tsx","./src/components/labelpicker.tsx","./src/components/taskqueue.tsx","./src/pages/adjudicationpage.tsx","./src/pages/goldenpage.tsx","./src/pages/queuepage.tsx"],"version":"5.9.3"}

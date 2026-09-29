@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: pip install scikit-learn statsmodels numpy  # optional cross-check deps used by tests
+      - run: python -m pytest -q
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+      - run: npm run build
+
+  eval-gate-demo:
+    # A live demonstration that eval_gate.py actually enforces its
+    # thresholds in CI, not just a doc claiming it does: this job asserts
+    # the gate PASSES on tests/fixtures/passing_predictions.json and FAILS
+    # (non-zero exit) on tests/fixtures/failing_predictions.json. In a real
+    # deployment, replace these two fixtures with (1) the currently-deployed
+    # model's predictions on the golden set as the required-to-pass check,
+    # and drop the "must fail" half -- that half exists here only to prove
+    # the gate is wired correctly.
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Gate must PASS on the passing fixture
+        run: python eval_gate.py tests/fixtures/passing_predictions.json --min-macro-f1 0.5 --max-ece 0.5
+      - name: Gate must FAIL (non-zero exit) on the failing fixture
+        run: |
+          if python eval_gate.py tests/fixtures/failing_predictions.json; then
+            echo "::error::eval_gate.py should have exited non-zero on the failing fixture but didn't"
+            exit 1
+          else
+            echo "Gate correctly rejected the failing fixture."
+          fi
