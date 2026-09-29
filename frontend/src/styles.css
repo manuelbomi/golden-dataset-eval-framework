@@ -1,0 +1,161 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f1115;
+  color: #e8e8e8;
+}
+
+.app-shell header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #2a2d34;
+}
+
+.app-shell nav a {
+  margin-left: 1.25rem;
+  color: #9aa4b2;
+  text-decoration: none;
+}
+
+.app-shell nav a.active {
+  color: #e8e8e8;
+  font-weight: 600;
+}
+
+.queue-page {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.task-queue {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  background: #1a1d24;
+  border: 1px solid #2a2d34;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+  cursor: pointer;
+}
+
+.task-item.selected {
+  border-color: #5b8cff;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.status-pending { background: #9aa4b2; }
+.status-golden { background: #4caf50; }
+.status-adjudication { background: #e07a5f; }
+
+.label-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.label-chip {
+  border: 1px solid #2a2d34;
+  background: #1a1d24;
+  color: inherit;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+}
+
+.label-chip.selected {
+  border-color: #5b8cff;
+  background: #223055;
+}
+
+.order-badge {
+  margin-left: 0.35rem;
+  font-size: 0.7em;
+  opacity: 0.8;
+}
+
+textarea {
+  width: 100%;
+  min-height: 4rem;
+  background: #1a1d24;
+  color: inherit;
+  border: 1px solid #2a2d34;
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  margin-top: 0.75rem;
+  background: #5b8cff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+}
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.snippet-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  padding: 1rem;
+  background: #1a1d24;
+  border-radius: 8px;
+}
+
+.rater-columns {
+  display: flex;
+  gap: 1rem;
+}
+
+.rater-column {
+  flex: 1;
+  background: #1a1d24;
+  border: 1px solid #2a2d34;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid #2a2d34;
+}
+
+.empty-state, .error-banner {
+  padding: 1.5rem;
+  color: #9aa4b2;
+}

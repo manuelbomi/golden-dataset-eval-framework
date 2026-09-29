@@ -1,0 +1,14 @@
+[
+  {"golden_label": "OBJECTION", "predicted_label": "OBJECTION", "confidence": 0.91},
+  {"golden_label": "OBJECTION", "predicted_label": "OBJECTION", "confidence": 0.88},
+  {"golden_label": "BUYING_SIGNAL", "predicted_label": "BUYING_SIGNAL", "confidence": 0.83},
+  {"golden_label": "BUYING_SIGNAL", "predicted_label": "BUYING_SIGNAL", "confidence": 0.79},
+  {"golden_label": "COMPLIANCE_RISK", "predicted_label": "COMPLIANCE_RISK", "confidence": 0.95},
+  {"golden_label": "COMPLIANCE_RISK", "predicted_label": "COMPLIANCE_RISK", "confidence": 0.93},
+  {"golden_label": "QUESTION", "predicted_label": "QUESTION", "confidence": 0.85},
+  {"golden_label": "ACTION_ITEM", "predicted_label": "ACTION_ITEM", "confidence": 0.80},
+  {"golden_label": "NEUTRAL", "predicted_label": "NEUTRAL", "confidence": 0.72},
+  {"golden_label": "NEUTRAL", "predicted_label": "NEUTRAL", "confidence": 0.70},
+  {"golden_label": "OBJECTION", "predicted_label": "NEUTRAL", "confidence": 0.55},
+  {"golden_label": "QUESTION", "predicted_label": "ACTION_ITEM", "confidence": 0.52}
+]
